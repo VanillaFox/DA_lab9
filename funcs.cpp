@@ -34,7 +34,7 @@ void ChangeWeight(std::vector<Edge>& edges, std::vector<long long>& res, int M){
     for(int i = 0; i < edges.size(); i++){
         a = edges[i].first;
         b = edges[i].second;
-        edges[i].weight = edges[i].weight + res[a] - res[b];
+        edges[i].weight += res[a] - res[b];
     }
 }
 
