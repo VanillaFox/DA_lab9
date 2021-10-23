@@ -11,7 +11,7 @@ struct Edge{
     long long weight;
 };
 
-void Johnson(std::vector<Edge>& edges, int N, int M);
+std::vector<std::vector<long long>> Johnson(std::vector<Edge>& edges, int N, int M);
 std::vector<long long> BellmanFord(std::vector<Edge>& edges, int N);
 void ChangeWeight(std::vector<Edge>& edges, std::vector<long long>& res, int M);
 std::vector<long long> Dijkstra(std::vector<Edge>& positiveEdges, int N, int M, std::vector<Edge>& edges, int s);

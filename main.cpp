@@ -11,6 +11,9 @@ int main(){
         std::cin >> a >> b >> w;
         edges.push_back(Edge(a, b, w));
     }
-
-    Johnson(edges, n, m);    
+    std::vector<std::vector<long long>> result;
+    result = Johnson(edges, n, m);
+    if(!result.empty()){
+        PrintMatrix(result, n);
+    }
 }  

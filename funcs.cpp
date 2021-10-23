@@ -98,7 +98,7 @@ void PrintMatrix(std::vector<std::vector<long long>>& result, int N){
     }
 }
 
-void Johnson(std::vector<Edge>& edges, int N, int M){
+std::vector<std::vector<long long>> Johnson(std::vector<Edge>& edges, int N, int M){
     std::vector<long long> resBF;
     std::vector<Edge> positiveEdges = edges;
 
@@ -107,17 +107,17 @@ void Johnson(std::vector<Edge>& edges, int N, int M){
     }
 
     resBF = BellmanFord(positiveEdges, N);
+    std::vector<std::vector<long long>> result;
+
     if(resBF.empty()){
         std::cout << "Negative cycle\n";
-        return;
+        return result;
     }
 
     ChangeWeight(positiveEdges, resBF, M);
-    std::vector<std::vector<long long>> result;
 
     for(int i = 0; i < N; i++){
         result.push_back(Dijkstra(positiveEdges, N, M, edges, i));
     }
-    
-    PrintMatrix(result, N);
+    return result;
 }
